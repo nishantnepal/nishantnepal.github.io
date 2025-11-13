@@ -4,5 +4,7 @@ description: "Building stuff."
 
 timezone: America/New_York
 url: "https://nishantnepal.github.io"
+baseurl: ""
+theme: jekyll-theme-chirpy
 github:
   username: nishantnepal
