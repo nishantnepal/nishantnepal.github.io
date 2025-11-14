@@ -5,31 +5,21 @@ date: 2025-09-13
 tags: [gen-ai, architecture, enterprise-ai, mcp]
 ---
 
-## The Enterprise AI Challenge
+## The Challenge
 
-Building a compelling generative AI demo is relatively straightforward in 2025. But taking that demo and transforming it into a production-ready, enterprise-grade system? That's where most projects stumble. For the past few months, I have been diving deeper into building agentic AI systems, but more importantly, seeing how they can fit into an enterprise environment. Most demos and POCs that I have seen are great showcases of what's possible, but they rarely address the architectural concerns, security requirements, scalability challenges, and operational complexities that emerge when deploying to a production environment.
+Building a compelling generative AI demo is relatively straightforward in 2025. But taking that demo and transforming it into a production-ready, enterprise-grade system? That's where most demos do not go into yet is probably the most important step. I have been diving deeper into building agentic AI systems, but more importantly, seeing how they can fit into an enterprise environment - address the architectural concerns, security requirements, scalability challenges, and operational complexities that emerge when deploying to a production environment.
 
 The goal of this series is to bridge that gap—to cover the practical architectural patterns and engineering practices needed to build enterprise-ready generative AI products. This is also a place for me to gather and refine my thoughts as I navigate this evolving landscape.
 
-## What You'll Learn
-
-Throughout this series, we'll explore:
-
-- **Architecture patterns** We will start off with a single intelligent agent and then look at multi-agents.
-- **Security considerations** including authentication, authorization, and data protection
-- **Integration strategies** using the Model Context Protocol (MCP)
-- **Scalability and performance** optimization techniques
-- **Monitoring and observability** for AI agents
-- **Cost management** and resource optimization
-- **Deployment strategies** for enterprise environments
 
 ## High Level Architecture
 
-The diagram below represents the overall high-level architecture we'll be building throughout this series:
+The diagram below represents the overall high-level architecture we'll be working with throughout this series. The goal is **not the** LLM content or the code - rather its the process of scaling this.
 
-![High-level architecture diagram showing MCP servers, web application, and Azure OpenAI integration](2025-09-13-enterprise-gen-ai-intro/highlevel-arch.png)
+![High-level architecture diagram showing MCP servers, web application, and Azure OpenAI integration](_enterprise-gen-ai/highlevel-arch.png)
 
-### Core Components
+
+## Core Components
 
 From a components perspective, these are the building blocks of our architecture:
 
