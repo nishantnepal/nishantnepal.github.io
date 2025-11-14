@@ -139,14 +139,6 @@ More importantly, though it did with this warning :)
 Now compare above to using the FastMCP 2.0 tool
 
 
-
-```bash
-if [ $? -ne 0 ]; then
-  echo "The command was not successful.";
-  #do the needful / exit
-fi;
-```
-
 ```python
 from fastmcp import FastMCP
 mcp = FastMCP("Demo Server")
