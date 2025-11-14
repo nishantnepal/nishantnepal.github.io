@@ -154,6 +154,7 @@ if __name__ == "__main__":
     mcp.run()
 ```
 
+
 That's it - FastMCP handles all the gruntwork so no suprises, if you are starting out - start with FastMCP :)
 
 ####  Synthea MCP Server
