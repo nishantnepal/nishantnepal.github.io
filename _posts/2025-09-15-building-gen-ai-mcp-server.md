@@ -3,6 +3,7 @@ layout: post
 title: "Introduction to MCP Server"
 date: 2025-09-13
 tags: [gen-ai, mcp]
+mermaid: true
 ---
 ## MCP
 
@@ -138,8 +139,8 @@ More importantly, though it did with this warning :)
 Now compare above to using the FastMCP 2.0 tool
 
 
+
 ```python
-# server.py
 from fastmcp import FastMCP
 
 mcp = FastMCP("Demo Server")
@@ -160,7 +161,7 @@ That's it - FastMCP handles all the gruntwork so no suprises, if you are startin
 ####  Synthea MCP Server
 
 ```mermaid
-graph TD
+  graph TD
     A[Server]
     subgraph B[MCP Resources]
         B1[data_dictionary: Data Dictionary of all the tables in the database.]
@@ -180,7 +181,7 @@ graph TD
 
 #### Tracking MCP Server
 ```mermaid
-graph TD
+  graph TD
     A[Air Quality Tracking MCP Server]
     subgraph B[MCP Resources]
         B1[tracking_data_dictionary: Data Dictionary for Air Quality Tracking datasets including CO, O3, PM2.5, and SO2 measurements.]
@@ -195,5 +196,4 @@ graph TD
     D[🔒 Security]
     B -- Secured --> D
     C -- Secured --> D
-
 ```
