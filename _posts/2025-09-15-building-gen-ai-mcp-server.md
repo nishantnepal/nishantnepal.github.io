@@ -140,16 +140,20 @@ Now compare above to using the FastMCP 2.0 tool
 
 
 
+```bash
+if [ $? -ne 0 ]; then
+  echo "The command was not successful.";
+  #do the needful / exit
+fi;
+```
+
 ```python
 from fastmcp import FastMCP
-
 mcp = FastMCP("Demo Server")
-
 @mcp.tool
 def add(a: int, b: int) -> int:
     """Add two numbers"""
     return a + b
-
 if __name__ == "__main__":
     # stdio or WebSocket/HTTP depending on how you run it
     mcp.run()
