@@ -1,6 +1,6 @@
 ---
 layout: post 
-title: "Introduction"
+title: "Introduction to MCP Server"
 date: 2025-05-21
 tags: [gen-ai, mcp]
 ---
