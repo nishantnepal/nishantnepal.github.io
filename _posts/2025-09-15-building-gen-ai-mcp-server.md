@@ -130,14 +130,14 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
 ```
+
 More importantly, though it did with this warning :)
 > If you try to build an MCP server entirely by hand, you quickly become responsible for everything the protocol requires—handling all method names, message IDs, error codes, tool schemas, argument validation, resources, prompts, streaming, logs, session state, and authentication. It’s manageable for a tiny toy example, but as soon as you scale beyond a simple demo, the amount of protocol plumbing and edge-case handling becomes overwhelming and slows down real development.
 
 Now compare above to using the FastMCP 2.0 tool
+
+
 ```python
 # server.py
 from fastmcp import FastMCP
@@ -152,7 +152,6 @@ def add(a: int, b: int) -> int:
 if __name__ == "__main__":
     # stdio or WebSocket/HTTP depending on how you run it
     mcp.run()
-
 ```
 
 That's it - FastMCP handles all the gruntwork so no suprises, if you are starting out - start with FastMCP :)

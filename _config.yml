@@ -8,5 +8,6 @@ baseurl: ""
 theme: jekyll-theme-chirpy
 mermaid:
   enable: true
+  theme: auto
 github:
   username: nishantnepal
