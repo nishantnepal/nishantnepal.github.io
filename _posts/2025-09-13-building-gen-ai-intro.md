@@ -16,7 +16,7 @@ The goal of this series is to bridge that gap—to cover the practical architect
 
 The diagram below represents the overall high-level architecture we'll be working with throughout this series. The goal is **not the** LLM content or the code - rather its the process of scaling this.
 
-![High-level architecture diagram showing MCP servers, web application, and Azure OpenAI integration](enterprise-gen-ai/highlevel-arch.png)
+![High-level architecture diagram showing MCP servers, web application, and Azure OpenAI integration](/assets/images/genai-highlevel-arch.png)
 
 
 ## Core Components

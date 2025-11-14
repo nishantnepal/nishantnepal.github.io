@@ -13,6 +13,7 @@ The MCP protocol is simply a common language that lets AI apps and external tool
 An MCP server is like a plugin or helper service your AI can talk to. If you imagine ChatGPT as a “brain,” it can think and reason—but it can’t directly read your files, query your database, call your APIs, or update your systems. It needs “hands” to interact with the real world. MCP servers provide those hands by exposing safe, controlled tools the AI can use. For example, a File MCP can read or write files, a SQL MCP can run database queries, a GitHub MCP can create issues, and a custom MCP can do anything you code. Each server offers a specific set of capabilities, and the AI chooses which tools to use based on the task.
 
 #### Core Components
+
 | Component              | What It Is                                                             | Why It’s Core                                                  |
 | ---------------------- | ---------------------------------------------------------------------- | -------------------------------------------------------------- |
 | **Tools**              | Actions the AI can call                                                | Core for doing things                                          |
