@@ -8,7 +8,7 @@ mermaid: true
 ---
 ## MCP
 
-The MCP protocol is simply a common language that lets AI apps and external tools communicate smoothly. Just like your browser uses HTTP to talk to websites, the MCP protocol lets an AI—such as ChatGPT, VS Code, or your own web app—connect to small helper services (MCP servers) that provide capabilities like reading files, running queries, or calling APIs. It standardizes how the AI discovers these tools, sends requests, and receives results, making everything work together reliably and safely without custom integrations.
+The MCP protocol is a common language that lets AI apps and external tools communicate smoothly. Just like a browser uses HTTP to talk to websites, the MCP protocol lets an AI—such as ChatGPT, VS Code, or your own web app—connect to small helper services (MCP servers) that provide capabilities like reading files, running queries, or calling APIs. It standardizes how the AI discovers these tools, sends requests, and receives results, making everything work together reliably and safely without custom integrations.
 
 ### MCP Server
 
@@ -252,4 +252,4 @@ server_name = "synthea" if response["name"] and response["name"].startswith("syn
 ```
 ## Coming Up Next
 
-In the next post, we'll look into ***Cost*** as an architectural in the context of an agent.
+In the next post, we'll look into ***Cost*** as an architectural concern in the context of an agent.
