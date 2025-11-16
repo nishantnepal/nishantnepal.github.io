@@ -2,6 +2,7 @@
 layout: post 
 title: "Introduction to Building Generative AI Products"
 date: 2025-09-13
+categories: [Generative AI]
 tags: [gen-ai, architecture, enterprise-ai, mcp]
 ---
 
@@ -51,6 +52,6 @@ This architecture addresses several enterprise concerns:
 
 ## Coming Up Next
 
-In the next post, we'll dive deeper into setting up a remote MCP server.
+In the next post, we'll dive deeper into setting up remote MCP servers and clients.
 
 

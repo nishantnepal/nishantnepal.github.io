@@ -1,7 +1,8 @@
 ---
 layout: post 
-title: "Introduction to MCP Server"
-date: 2025-09-13
+title: "Setting up the components"
+date: 2025-09-20
+categories: [Generative AI, Architectural Concerns]
 tags: [gen-ai, mcp]
 mermaid: true
 ---
@@ -193,3 +194,62 @@ That's it - FastMCP handles all the gruntwork so no suprises, if you are startin
     B -- Secured --> D
     C -- Secured --> D
 ```
+
+
+## Consumer
+
+The client side flow is somewhat along this line
+
+```mermaid
+ flowchart TD
+    A[Client - chat.html]
+    B[Quart App - app.py]
+    C[Authentication - Azure AD]
+    D[Session Established]
+    E[User Request: /chat]
+    F[Tool/Resource Discovery]
+    G[Synthea MCP Server]
+    H[Tracking MCP Server]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+    F --> H
+
+```
+
+I am using the FastMCP client ([link](https://gofastmcp.com/clients/client)) as well so that i am less worried about the low level MCP protocol stuff. Things that i need to circle back to later are
+
+#### Security for Multi-Servers : 
+FastMCP supports these kind of configurations
+```python
+def get_mcp_config():
+    return {
+        "mcpServers": {
+            "synthea": {
+                "url": "https://xxxxx.net/mcp",
+                "transport": "http",
+            },
+            "tracking": {
+                "url": "https://yyyyyynet/mcp",
+                "transport": "http",
+            }
+        }
+    }
+```
+I was not able to get OAuth to work soely based on configuration. The only way i got it to work when the MCP server was secured with OAuth was handling it myself something like this
+
+```python
+server_name = "synthea" if response["name"] and response["name"].startswith("synthea") else "tracking"
+    configs = get_mcp_config()
+    server_url = configs["mcpServers"][server_name]["url"]
+
+    async with Client(server_url, auth=BearerAuth(token=access_token)) as client:
+        # Use the full resource URI directly
+```
+## Coming Up Next
+
+In the next post, we'll look into ***Cost*** as an architectural in the context of an agent.
