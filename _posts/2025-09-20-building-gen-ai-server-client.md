@@ -1,6 +1,6 @@
 ---
 layout: post 
-title: "Setting up the components"
+title: "Agentic AI - Components"
 date: 2025-09-20
 categories: [Generative AI, Architectural Concerns]
 tags: [gen-ai, mcp]

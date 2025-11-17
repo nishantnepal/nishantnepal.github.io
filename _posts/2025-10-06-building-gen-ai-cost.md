@@ -1,6 +1,6 @@
 ---
 layout: post 
-title: "Architectural Concerns - Cost"
+title: "Agentic AI - Cost"
 date: 2025-10-06
 categories: [Generative AI, Architectural Concerns, Cost]
 tags: [gen-ai]

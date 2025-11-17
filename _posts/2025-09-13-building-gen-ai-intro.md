@@ -1,6 +1,6 @@
 ---
 layout: post 
-title: "Introduction to Building Generative AI Products"
+title: "Agentic AI - Intro"
 date: 2025-09-13
 categories: [Generative AI]
 tags: [gen-ai, architecture, enterprise-ai, mcp]
