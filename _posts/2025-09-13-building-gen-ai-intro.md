@@ -50,6 +50,9 @@ This architecture addresses several enterprise concerns:
 - **Governance**: Centralized control over what data and tools the AI can access
 - **Scalability**: Each component can scale based on demand
 
+## Warning
+Comparing Agentic AI (multi or single) with simple RAG is not exactly a no-brainer of Agentic AI winning every time. The old saying of "depends on use case" very much applies. Building an agentic AI system does add development complexity and in a scenario where remote MCP servers are involved, you do need to factor in latency and other concerns as well.
+
 ## Coming Up Next
 
 In the next post, we'll dive deeper into setting up remote MCP servers and clients.
