@@ -62,8 +62,10 @@ If i switch to using agents, then things look different. Yes, i gain flexibility
 
 ![RAG Tokens](/assets/images/genai-agentic-tokens.gif)
 
-With that said, there are definately optimizations that can be made to reduce costs - prompt optimizations, tool caching, token budgets, context pruning and others.
+## Summary
+The intent to show this is not to discourage building agentic AI but to emphasise what in most cases is already well understood - your use case should determine whether you need an agent or not and while cost should be a factor, it should NOT the only factor. For example, what is a prohibitive cost of implementating and maintainining (operations and recurring LLM charge) for a project is totally acceptable for another project. 
+Additionally, there are definately optimizations that can be made to reduce costs - prompt optimizations, tool caching, token budgets, context pruning and others.
 
 ## Coming Up Next
 
-In the next post, we'll look into ***Security*** as an architectural concern in the context of an agent.
+In the next post, we'll explore ***Security*** as a critical architectural concern when building agentic AI systems.
