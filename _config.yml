@@ -14,9 +14,9 @@ timezone: America/New_York
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: "Nishant Tech Blog" # the main title
+title: "Build. Break. Learn." # the main title
 
-tagline: Documenting my journey. # it will display as the subtitle
+tagline: Building with AI, data, and cloud technologies. # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
   Building stuff
