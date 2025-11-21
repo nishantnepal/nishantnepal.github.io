@@ -8,7 +8,7 @@ Add-Type -AssemblyName System.Drawing
 # ========================================
 # Validate environment variable
 # ========================================
-$OutputFolder = $env:IMAGE_SAVE_PATH
+$OutputFolder = "C:\Users\618027\source\nishantnepal.github.io-1\assets\images\"
 
 if (-not $OutputFolder -or $OutputFolder.Trim() -eq "") {
     Write-Host "ERROR: Environment variable IMAGE_SAVE_PATH is not set."

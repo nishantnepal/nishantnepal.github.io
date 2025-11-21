@@ -12,6 +12,7 @@ Building a compelling generative AI demo is relatively straightforward in 2025. 
 
 The goal of this series is to bridge that gap—to cover the practical architectural patterns and engineering practices needed to build enterprise-ready generative AI products. This is also a place for me to gather and refine my thoughts as I navigate this evolving landscape.
 
+> Incorporating SLMs/LLMs into applications represents a **unique blend of software engineering and data science**, with a  tilt toward software engineering practices. While LLMs themselves are products of intensive data science and ML research, *integrating* these models into production systems requires primarily software engineering skills—API integration, system design, orchestration, authentication, scalability, and observability. In traditional ML, teams spent most effort on model development: training, feature engineering, hyperparameter tuning, and versioning. Today, with LLM development consolidated among major providers, practitioners focus on application-layer concerns and tool integration. Data science expertise remains critical for prompt engineering, RAG pipeline optimization, and systematic evaluation—but the primary discipline required has shifted toward software engineering patterns and practices.
 
 ## High Level Architecture
 
