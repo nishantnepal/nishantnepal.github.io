@@ -50,6 +50,10 @@ class SpanType:
 
 ![MLFlow Traces](/assets/images/genai-mlflow-traces.gif)
 
+#### Update Nov 11 2025
+One thing that I really like about MLFlow is the session tab - this is very handy when dealing with chat applications where every call to the LLM is a separate trace. By passing in a grouping identified (the threadid, a session id or any unique grouping identifier), MLFlow can automatically group that so that you can get an end to end view which is invaluable.
+
+![MLFlow Session](/assets/images/genai-mlflow-traces-sessions.gif)
 ## Summary
 The tool is secondary—the important part is that you actually have detailed monitoring that you can query, correlate, and operate with. Secondary, in my opinion, is not how you can log traces to the tool but also factor in how easily you can query for logs, correlate logs using both UI and API. Most tools are acceptable for UI, but may be locked down for api for getting data out for non UI analysis.
 

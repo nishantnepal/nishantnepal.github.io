@@ -58,13 +58,12 @@ Because the LLM gets context + user question and answers in one call, the cost (
 
 ![RAG Tokens](/assets/images/genai-rag-tokens.gif)
 
-If i switch to using agents, then things look different. Yes, i gain flexibility where my orchestrator is "dumb" initially (in RAG, your first step is always calling the vector store) but with the tools at its disposal, it can dynamically call/enlist methods that it needs to help answer - what data dictionaries exist, what tools can i call etc. But, this comes at the expense of more tokens/cost. For example, in the two screenshots, both calls for RAG are cheaper approximately 65% over equivalent calls using tools. 
+If you switch to using agents, the flow changes. You gain flexibility—your orchestrator starts out “dumb” (unlike RAG, where the first step is always a vector store search), but with access to various tools, it can dynamically decide which methods to call to answer a query (like checking available data dictionaries or invoking specific tools). The tradeoff: increased token usage and cost. For example, in the screenshots, RAG calls are about 65% cheaper than equivalent agentic calls using tools. While token costs are dropping and may not be a deal breaker, if your agent orchestrates a long-running process, the main cost driver will likely be the compute time required to execute the query.
 
 ![RAG Tokens](/assets/images/genai-agentic-tokens.gif)
 
 ## Summary
-The intent to show this is not to discourage building agentic AI but to emphasise what in most cases is already well understood - your use case should determine whether you need an agent or not and while cost should be a factor, it should NOT the only factor. For example, what is a prohibitive cost of implementating and maintainining (operations and recurring LLM charge) for a project is totally acceptable for another project. 
-Additionally, there are definately optimizations that can be made to reduce costs - prompt optimizations, tool caching, token budgets, context pruning and others.
+The goal isn’t to discourage agentic AI, but to emphasize that your use case and expected ROI should drive the decision. Cost matters, but it shouldn’t dominate the conversation. What’s too expensive for one project may be perfectly reasonable for another if the ROI justifies it. And there are still many ways to optimize costs—prompt refinement, tool caching, token budgets, context pruning, and more
 
 ## Coming Up Next
 
