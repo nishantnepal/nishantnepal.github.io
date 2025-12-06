@@ -6,14 +6,14 @@ categories: [Generative AI, Architectural Concerns]
 tags: [gen-ai]
 mermaid: true
 ---
-## Intro Thoughts
+## Intro
 
 My career has fluctuated between software and data as primary focus areas, with infrastructure and DevSecOps as secondary strengths. While there may be more formal definitions of LLM evaluations, the one that resonates most with me is that it’s essentially software testing for AI models. In software testing—unit, integration, performance, etc.—we verify that deterministic code behaves as expected. LLM evaluation follows the same principle but applied to model behavior: instead of fixed outputs, we give the model test cases as prompts and assess whether the responses are safe, reliable, and correct across many scenarios, using metrics that capture accuracy, consistency, and overall quality.
 
 ## How does it work
 Imagine this scenario: your LLM app is running on GPT-4.1 and then GPT-5.0 is released. How can you confidently upgrade knowing your users will continue getting the same experience and that your code or workflows won’t inadvertently break?
 
-You could do a quick eyeball check and decide, “Yes, everything looks fine to upgrade.” The screenshot below is real time (with reasoning set to minimal for GPT 5) and you can see a must faster/smoother response for GPT 5 but also given that the pricing for input tokens for GPT 5 is cheaper (yayy - more context window) at the expense of more expensive for output tokens, its definately a consideration for upgrade!
+You could do a quick eyeball check and decide, “Yes, everything looks fine to upgrade.” The screenshot below is real time (with reasoning set to minimal for GPT 5) and you can see a much faster/smoother response for GPT 5 but also given that the pricing for input tokens for GPT 5 is cheaper (yayy - more context window) at the expense of more expensive for output tokens, its definately a consideration for upgrade!
 
 ![GPT 4 versus 5](/assets/images/genai-gpt_4_5_comp.gif)
 
@@ -22,9 +22,11 @@ But as a technologist, you know better than to rely on eyeballing such a critica
 
 Example, my dataset looks like this if i am testing a Natural Language to SQL use case. The key is to look and idenfity patterns. Maybe it consistently generates SQL that looks correct but doesn’t execute. Maybe it joins the wrong tables or filters on the wrong column names. Maybe it returns a result that’s close but not identical, or it misses edge cases like distinct counts or date calculations. These recurring failure modes help you understand exactly how the model behaves and where prompt or model changes will matter.
 
+> Note: Your evaluation data should be a team effort involving SMEs and any other team involved in using, testing your application. This is not a pure technical effort.
+
 ![Eval Questions](/assets/images/genai-eval-questions.png)
 
-> Note: The ground truth column can be a string, number or any data type. The reason i have it as a pointer to a file is because in my case, it contains more information that do not cleanly fit into a cell
+> Note: The ground truth column can be a string, number or any data type. The reason i have it as a pointer to a file is because in my case, SQL query results can be large JSON objects with nested data—too complex for a spreadsheet cell but perfect for a referenced file.
 
 The next step is running those questions against the LLMs that you want to target and capturing the outputs from the LLMs. If you have a small evaluation dataset, you can manually validate the results but its likely that the eval dataset keeps on growing and you need to start thinking about evaluating advanced options such as "LLM as a judge". 
 

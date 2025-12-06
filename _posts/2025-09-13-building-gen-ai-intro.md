@@ -2,7 +2,7 @@
 layout: post 
 title: "Agentic AI - Intro"
 date: 2025-09-13
-categories: [Generative AI]
+categories: [Generative AI, Architectural Concerns]
 tags: [gen-ai, architecture, enterprise-ai, mcp]
 ---
 

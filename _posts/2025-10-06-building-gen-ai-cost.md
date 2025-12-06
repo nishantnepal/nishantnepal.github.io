@@ -63,7 +63,9 @@ If you switch to using agents, the flow changes. You gain flexibility—your orc
 ![RAG Tokens](/assets/images/genai-agentic-tokens.gif)
 
 ## Summary
-The goal isn’t to discourage agentic AI, but to emphasize that your use case and expected ROI should drive the decision. Cost matters, but it shouldn’t dominate the conversation. What’s too expensive for one project may be perfectly reasonable for another if the ROI justifies it. And there are still many ways to optimize costs—prompt refinement, tool caching, token budgets, context pruning, and more
+The goal isn't to discourage agentic AI, but to emphasize that your use case and expected ROI should drive the decision. Cost matters, but it shouldn't dominate the conversation. What's too expensive for one project may be perfectly reasonable for another if the ROI justifies it. And there are still many ways to optimize costs—prompt refinement, tool caching, token budgets, context pruning, and more.
+
+Beyond optimization, you also need to consider TCO (Total Cost of Ownership). Don't just factor in tokens and infrastructure for the agent itself. Account for the downstream costs of actions your agent executes—SQL queries, API calls, or other compute-intensive tasks. These can add up quickly and often catch teams off guard when they're focused solely on model inference costs.
 
 ## Coming Up Next
 
