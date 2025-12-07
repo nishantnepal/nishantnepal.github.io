@@ -1,6 +1,29 @@
+Generative AI
 Small Language Models
-ACA
+SLM - local chatbot
 Fineturn SLM
-Frameworks Choices
+Frameworks Choices - Dspy vs langchain vs pydantic ai
+vLLM
+Scalability - APIM
+Common Model Gateway
+
+Memory - short term - mited to session. Execute sql and then come back and ask to get details about that in a different session
+long term - who am i, my interests
+
+Long process - event driven agents, Event to queue for scaling
+
+Azure
+ACA
+
+AWS
+
+
+Data Engineering
 Virtual Tables
 Delta Shares
+
+
+ML
+
+NLP
+Transformers

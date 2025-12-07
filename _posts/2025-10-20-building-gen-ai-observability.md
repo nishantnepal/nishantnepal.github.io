@@ -56,8 +56,65 @@ One thing that I really like about MLFlow is the session tab - this is very hand
 
 ![MLFlow Session](/assets/images/genai-mlflow-traces-sessions.gif)
 
+## LLM as a judge for SRE functions
+Beyond basic trace visualization, observability tools can also help you automatically identify issues. Using the LLM as a judge pattern, we can scale catching issues with our application to a really high level. By defining performance target scorers in this format
+
+```python
+performance_judge = make_judge(
+    name="performance_analyzer",
+    instructions=(
+        "Analyze the {{ trace }} for performance issues.\n\n"
+        "Check for:\n"
+        "- Operations taking longer than 100 seconds\n"
+        "- Redundant API calls or database queries\n"
+        "- Inefficient data processing patterns\n"
+        "- Proper use of caching mechanisms\n\n"
+        "- Any errors in responses from tool calling\n\n"
+        "Rate as: 'optimal', 'acceptable', or 'needs_improvement'"
+    ),
+    model=f"azure:/{AZURE_OPENAI_DEPLOYMENT_NAME}",
+)
+
+tool_optimization_judge = make_judge(
+    name="tool_optimizer",
+    instructions=(
+        "Analyze tool usage patterns in {{ trace }}.\n\n"
+        "Check for:\n"
+        "1. Unnecessary tool calls (could be answered without tools)\n"
+        "2. Wrong tool selection (better tool available)\n"
+        "3. Inefficient sequencing (could parallelize or reorder)\n"
+        "4. Missing tool usage (should have used a tool)\n\n"
+        "Provide specific optimization suggestions.\n"
+        "Rate efficiency as: 'optimal', 'good', 'suboptimal', or 'poor'"
+    ),
+    feedback_value_type=Literal["optimal", "good", "suboptimal", "poor"],
+    model=f"azure:/{AZURE_OPENAI_DEPLOYMENT_NAME}"
+)
+```
+and then running these againts the traces
+```python
+  base = f"timestamp >= {since}"
+  traces = mlflow.search_traces(experiment_ids=[experiment_id], return_type="list",filter_string=base)
+  for trace in traces:
+      feedback = accuracy_judge(trace=trace)
+      mlflow.log_feedback(
+              trace_id=trace.info.trace_id,
+              name="llm_accuracy_analysis",
+              value=feedback.value,
+              rationale=feedback.rationale,
+              source=AssessmentSource(
+                  source_type=AssessmentSourceType.LLM_JUDGE, source_id=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME", "gpt-4")
+              ),
+      )
+```
+you can get a rich feedback on your traces. Pretty cool! 
+
+![Agent as Judge](/assets/images/genai-observability-agent-as-judge.gif)
+
+
+
 ## Summary
-The tool is secondary—the important part is that you actually have detailed monitoring that you can query, correlate, and operate with. Secondary, in my opinion, is not how you can log traces to the tool but also factor in how easily you can query for logs, correlate logs using both UI and API. Most tools are acceptable for UI, but may be locked down for api for getting data out for non UI analysis.
+The tool is secondary—the important part is that you actually have detailed monitoring that you can query, correlate, and operate with. Beyond just logging traces, also consider how easily you can query and correlate logs using both UI and API.Most tools provide adequate UI functionality, but may be locked down for api for getting data out for non UI analysis.
 
 I should also note that for production high volume monitoring, you may want to consider "sampling" and also ensure that logs are non-blocking. If you are using MLFlow, it has a handy reference [list here](https://mlflow.org/docs/3.6.0rc0/genai/tracing/prod-tracing)
 
