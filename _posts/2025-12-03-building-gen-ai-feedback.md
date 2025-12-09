@@ -18,26 +18,11 @@ The first pattern we’ll look at is human feedback. This is the feedback your e
 
 There are many tools that support this out of the box—or you can build the plumbing yourself. In my case, I’m using MLflow and attaching feedback directly to the trace we captured earlier when discussing observability. Since MLflow already stores the inputs and outputs of each LLM call, it makes perfect sense to consolidate feedback inside that same trace. The result is a unified timeline of what the model saw, what it produced and how the user rated it.
 
-It starts off with ensuring that every trace written to MLFlow has a property that uniquely identifies the request/response or trace. In my case below, the  "request.id" property below is that property - in reality, its the OTel Trace Id which makes this scalable when we need this later for writing metadata to the trace.
+It starts off with ensuring that a unique property that identifies your request and reponse (in my case its the trace id) is sent back to the client in either the payload or the response header. 
 
 ``` python
-with mlflow.start_span(name="chat_streaming", attributes={"user.id": user_id}) as span:
-            mlflow.update_current_trace(
-                metadata={
-                    "mlflow.trace.user": str(user_id),        # shows in “User”
-                    "mlflow.trace.session": str(client_id),  # shows in “Session”
-                    # optional but handy:
-                    "request.id": str(request_id) if request_id else None,
-                    "client.id": str(client_id) if client_id else None,
-                }
-                )
-
-
-```
-
-Next is ensuring that this property is sent back to the client in either the payload or the response header 
-``` python
-response.headers["X-Request-Id"] = rid
+#trace id is the trace id
+response.headers["X-Otel-Trace-Id"] = trace_id
 ```
 
 On the client side, your feedback events should be attached to the response and associate that id with that response
@@ -45,7 +30,7 @@ On the client side, your feedback events should be attached to the response and 
 ![Feedback Icons](/assets/images/genai-feedback-manual-icons.png)
 
 
-Now, when the user presses either the "up" or down, the client should package the payload which has the request id and send that to the server.
+Now, when the user presses either the "up" or down, the client should package the payload which has the trace id and send that to the server.
 ```javascript
 async function sendFeedback(rating, reason, meta, statusEl) {
       const payload = buildFeedbackPayload(rating, reason, meta.requestId, meta.clientId);
@@ -66,12 +51,11 @@ async function sendFeedback(rating, reason, meta, statusEl) {
       }
     }
 ```
-Next on the server side, you take that id and get the trace in MLFlow and attach the feedback to it
+Next on the server side, you take that id and get the trace in MLFlow and attach the feedback to it.
 
 ```python
       experiment_id = mlflow.get_experiment_by_name(EXPERIMENT_NAME).experiment_id
-      # Since we're using OTel trace_id as our request_id, we can use it directly
-      trace_id = request_id             
+      # Since we're using OTel trace_id we can use it directly                
       pb = FeedbackPayload(**data)
       mlflow.log_feedback(
           trace_id=trace_id,
@@ -86,6 +70,10 @@ Next on the server side, you take that id and get the trace in MLFlow and attach
 The end result is that in MLFlow UI, you will see the feedback linked to the correct trace. This is an example of a binary feedback, you can further customize this for multi-level ratings (1-5 stars) or categorical feedback.
 
 ![Feedback Human](/assets/images/genai-feedback-human.gif)
+
+> Note that if your app does support retrieving past conversations/threads then the unique identifier should be stored as part of that as well so that you give the option for an user to generate feedback later. 
+
+> If you cannot use trace id as the key, an alternative pattern can be storing a key-value of your request to trace in a fast memory store like Redis.
 
 ### Automated Feedback
 While human feedback is great and a great way for users to provide feedback, it should not be the only way for feedback. You should run automated scan on a batch basis targeting different metrics you want and can attach to the same trace or a new experiment depending on your use case. The LLM-as-a-judge pattern can be extremely effective in doing these kind of analysis at scale. In MLFlow, its called [agent as a judge](https://mlflow.org/docs/3.5.0/genai/eval-monitor/scorers/llm-judge/agentic-overview) which enhances the LLM pattern to intelligently select the traces as needed to answer the analysis question. As a first step, you define your scorers
