@@ -7,9 +7,7 @@ tags: [gen-ai]
 mermaid: true
 ---
 ## Intro
-Building generative AI applications introduces unique challenges—challenges we didn’t have to think about when building regular, non-AI software applications (remember those? 🙂). One challenge that stands out is feedback. Whether it’s a user flagging a response as factually incorrect or an automated agent scanning and triaging issues, feedback becomes a core pillar of the system rather than an afterthought.
-
-Feedback is important because it’s the only mechanism that closes the loop between model output and real-world correctness. For all the evaluations and model tuning that can and should happen before, once your software hits production...its a different ballgame. Traditional software gives you deterministic behavior — you write a function, you know exactly what it returns. But with generative AI, every output can be different - even with the same prompt, context, and model. That means the system cannot rely solely on unit tests, typed contracts, or static analysis to guarantee correctness.
+Building generative AI applications introduces unique challenges—challenges we didn’t have to think about when building regular, non-AI software applications (remember those? 🙂). One challenge is feedback - whether it’s a user flagging a response as factually incorrect or an automated agent scanning and triaging issues, feedback is critical because it’s the only mechanism that closes the loop between model output and real-world correctness. For all the evaluations and model tuning that can and should happen before, once your software hits production...its a different ballgame. Traditional software gives you deterministic behavior — you write a function, you know exactly what it returns. But with generative AI, every output can be different - even with the same prompt, context, and model. That means the system cannot rely solely on unit tests, typed contracts, or static analysis to guarantee correctness.
 
 
 ## Implementation
@@ -54,7 +52,6 @@ async function sendFeedback(rating, reason, meta, statusEl) {
 Next on the server side, you take that id and get the trace in MLFlow and attach the feedback to it.
 
 ```python
-      experiment_id = mlflow.get_experiment_by_name(EXPERIMENT_NAME).experiment_id
       # Since we're using OTel trace_id we can use it directly                
       pb = FeedbackPayload(**data)
       mlflow.log_feedback(

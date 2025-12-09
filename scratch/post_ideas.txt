@@ -1,11 +1,13 @@
 Generative AI
+MLFLOW PRoduction
+Common Model Gateway
 Small Language Models
 SLM - local chatbot
 Fineturn SLM
 Frameworks Choices - Dspy vs langchain vs pydantic ai
 vLLM
 Scalability - APIM
-Common Model Gateway
+
 
 Memory - short term - mited to session. Execute sql and then come back and ask to get details about that in a different session
 long term - who am i, my interests
