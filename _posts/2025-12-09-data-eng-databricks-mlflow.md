@@ -1,7 +1,7 @@
 ---
 layout: post 
 title: "Linking MLFlow to Databricks Hosted"
-date: 2025-12-03
+date: 2025-12-09
 categories: [Data Engineering, Databricks]
 tags: [databricks]
 mermaid: true
