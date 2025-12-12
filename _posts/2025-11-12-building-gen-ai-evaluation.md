@@ -28,6 +28,8 @@ Example, my dataset looks like this if i am testing a Natural Language to SQL us
 
 > Note: The ground truth column can be a string, number or any data type. The reason i have it as a pointer to a file is because in my case, SQL query results can be large JSON objects with nested data—too complex for a spreadsheet cell but perfect for a referenced file.
 
+> It is worth noting that you may end up with multiple evaluations for your applications. This is both expected and beneficial. Similar to software engineering practices—where tests are distributed across files or modules rather than consolidated into a single location—you should structure evaluations according to use case, tool, or other logical boundaries. This should be considered standard practice.
+
 The next step is running those questions against the LLMs that you want to target and capturing the outputs from the LLMs. If you have a small evaluation dataset, you can manually validate the results but its likely that the eval dataset keeps on growing and you need to start thinking about evaluating advanced options such as "LLM as a judge". 
 
 > You should consider creating an evaluation dataset at the start of the project and keep on expnading that. This is critical. What is not immediately critical at start of project are the advanced patterns such as LLMs as judges and so on. You will get to these eventually.
