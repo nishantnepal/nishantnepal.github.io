@@ -26,7 +26,7 @@ It is far more feasible if the end-to-end source-to-target systems are OAuth-com
 
 In those situations, it becomes the responsibility of the MCP server to enforce authorization rather than the front-end application. The front-end’s role is to authenticate the user and pass the appropriate token and scopes to the MCP layer. From there, the MCP server ensures that the correct authorization rules are applied before interacting with downstream systems.
 
-![High-level architecture diagram showing MCP servers, web application, and Azure OpenAI integration](/assets/images/genai-highlevel-arch.png)
+![Security Flow](/assets/images/genai-security-flow.png)
 
 For the example above, once the user has been authenticated and the information passed with every call to the backend MCP servers, its upto the Synthea and Tracking MCP servers to enforce authorization. So if user ***Test User 1*** has access to execute SQL using a tool, the response will be this
 

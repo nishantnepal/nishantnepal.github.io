@@ -1,12 +1,13 @@
 Generative AI
-MLFLOW PRoduction
+Content Safety
 Common Model Gateway
+Scalability - APIM
 Small Language Models
 SLM - local chatbot
 Fineturn SLM
 Frameworks Choices - Dspy vs langchain vs pydantic ai
 vLLM
-Scalability - APIM
+
 
 
 Memory - short term - mited to session. Execute sql and then come back and ask to get details about that in a different session
