@@ -250,6 +250,3 @@ server_name = "synthea" if response["name"] and response["name"].startswith("syn
     async with Client(server_url, auth=BearerAuth(token=access_token)) as client:
         # Use the full resource URI directly
 ```
-## Coming Up Next
-
-In the next post, we'll look into ***Cost*** as an architectural concern in the context of an agent.

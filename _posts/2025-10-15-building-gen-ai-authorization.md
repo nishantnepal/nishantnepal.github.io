@@ -63,6 +63,3 @@ The solution isn't purely technical. You need to answer the business question fi
 
 Start narrow. Expand deliberately. 
 
-## Coming Up Next
-
-In the next post, we'll explore ***Observability*** as a critical architectural concern when building agentic AI systems.

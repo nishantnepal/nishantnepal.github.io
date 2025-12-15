@@ -120,6 +120,3 @@ I should also note that for production high volume monitoring, you may want to c
 
 Finally, don’t forget that LLM traces may include user inputs or sensitive content—ensure your logging backend complies with your organization’s data policies.
 
-## Coming Up Next
-
-In the next post, we'll explore ***Evaluations*** as a critical architectural concern when building agentic AI systems.

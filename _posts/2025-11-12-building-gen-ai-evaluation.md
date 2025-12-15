@@ -138,6 +138,3 @@ And this shows up in the UI alongside my other assessments. Nice! Now, depending
 In this article, we walked through why evaluations are essential and, in my opinion, something you should think about right from the start of any LLM project. While I focused on MLflow, you can use whatever framework fits your workflow—but make sure it supports **custom scorers**, because that’s ultimately what makes evaluations adaptable to your specific use case. We also walked through how to implement a custom scorer in MLflow and why that flexibility matters.
 
 
-## Coming Up Next
-
-In the next post, we'll explore ***Feedback*** as a critical architectural concern when building agentic AI systems.
