@@ -10,7 +10,7 @@ vLLM
 
 
 
-Memory - short term - mited to session. Execute sql and then come back and ask to get details about that in a different session
+Memory - short term - limited to session. Execute sql and then come back and ask to get details about that in a different session
 long term - who am i, my interests
 
 Long process - event driven agents, Event to queue for scaling
