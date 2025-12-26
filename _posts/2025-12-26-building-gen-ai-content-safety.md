@@ -51,6 +51,6 @@ On my observability platform (MLFlow), i can see the error event captured which 
 
 ## Summary
 
-Content Safety is another area which is new in comparision to a regular application development that we as technologists have to adapt. This is critical to monitor since you cannot predict how users interact with your applications and ultimately, you are responsible for your application.  
+Content Safety is a critical architectural concern that's fundamentally different from traditional application development. Unlike predictable software systems, LLMs can generate unexpected outputs, making proactive safety measures essential. Treat it like security and  monitor it continuously and continue to iterate based on real-world usage. Your application needs to not only be intelligent, but also safe and trustworthy.
 
 
