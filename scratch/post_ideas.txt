@@ -1,5 +1,4 @@
 Generative AI
-Content Safety
 Common Model Gateway
 Scalability - APIM
 Small Language Models
