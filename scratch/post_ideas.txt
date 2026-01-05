@@ -1,11 +1,15 @@
 Generative AI
-Common Model Gateway
-Scalability - APIM
+Scalability - APIM/ AI Gateway
+OBO - databricks, azure SQL - starred github repo using langchain
+
 Small Language Models
 SLM - local chatbot
 Fineturn SLM
+
+
 Frameworks Choices - Dspy vs langchain vs pydantic ai
 vLLM
+CUDA
 
 
 
@@ -15,6 +19,7 @@ long term - who am i, my interests
 Long process - event driven agents, Event to queue for scaling
 
 Azure
+Foundry Project Cost Tracking
 ACA
 
 AWS
