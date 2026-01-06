@@ -1,8 +1,8 @@
 ---
 layout: post 
-title: "Agentic AI - Azure Model Router"
+title: "Azure Model Router"
 date: 2026-01-04
-categories: [Generative AI, Architectural Concerns]
+categories: [Generative AI, Azure]
 tags: [gen-ai]
 mermaid: true
 ---
