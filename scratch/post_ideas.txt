@@ -1,6 +1,12 @@
 Generative AI
 Scalability - APIM/ AI Gateway
 OBO - databricks, azure SQL - starred github repo using langchain
+GPT -> Logic App --> Sharepoint
+VSCode MCP pointing to docker container (ChromaDB)
+
+MLOPS
+https://chatgpt.com/g/g-p-6907b05e8658819190cb6a280086d315-nn-genai/c/697d9d61-1a58-83aa-95e5-987912185b82
+https://chatgpt.com/g/g-p-6907b05e8658819190cb6a280086d315-nn-genai/c/697817c6-81d8-8324-84ff-f9ade4cbe4db
 
 Small Language Models
 SLM - local chatbot
@@ -34,3 +40,4 @@ ML
 
 NLP
 Transformers
+
